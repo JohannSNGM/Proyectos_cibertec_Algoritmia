@@ -1,0 +1,55 @@
+package semana_02;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+public class Frame extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Frame frame = new Frame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Frame() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 456, 299);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnProcesar = new JButton("Procesar");
+		btnProcesar.setBounds(335, 28, 89, 23);
+		contentPane.add(btnProcesar);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 62, 414, 188);
+		contentPane.add(scrollPane);
+		
+		JTextArea txtS = new JTextArea();
+		scrollPane.setViewportView(txtS);
+	}
+}

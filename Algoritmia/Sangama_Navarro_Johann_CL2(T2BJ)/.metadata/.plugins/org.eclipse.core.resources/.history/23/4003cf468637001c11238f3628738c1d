@@ -1,0 +1,48 @@
+package ArregloSueldos;
+
+public class ArregloSueldos {
+	
+	private int indice;
+	private double [] arreglo;
+	
+	public ArregloSueldos(){
+		arreglo = new double [5];
+		indice = 0;
+	}
+	
+	public int tamanio(){
+		return indice;
+	}
+	
+	public double obtener(int i){
+		return arreglo[i];
+	}
+	
+	public void adicionar(int numero){
+		if(indice==arreglo.length)
+			ampliarArreglo();
+		arreglo[indice] = numero;
+		indice++;
+	}
+	
+	private void ampliarArreglo(){
+		double [] aux = arreglo;
+		arreglo = new double[indice+5];
+		for (int i=0;i<indice;i++){
+			arreglo[i]=aux[i];
+		}
+	}
+
+	public int getIndice() {
+		return indice;
+	}
+
+	public void setIndice(int indice) {
+		this.indice = indice;
+	}
+	
+	
+	
+	
+	
+}

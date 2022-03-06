@@ -1,0 +1,95 @@
+package ArregloSueldos;
+
+public class ArregloSueldos {
+	
+	private int indice;
+	private double [] arreglo;
+	
+	public ArregloSueldos(){
+		arreglo = new double [5];
+		indice = 0;
+	}
+	
+	public int tamanio(){
+		return indice;
+	}
+	
+	public double obtener(int i){
+		return arreglo[i];
+	}
+	
+	public void adicionar(int numero){
+		if(indice==arreglo.length)
+			ampliarArreglo();
+		arreglo[indice] = numero;
+		indice++;
+	}
+	
+	private void ampliarArreglo(){
+		double [] aux = arreglo;
+		arreglo = new double[indice+5];
+		for (int i=0;i<indice;i++){
+			arreglo[i]=aux[i];
+		}
+	}
+
+	public int posicionUltimoSueldoMenorQue1000(){
+		for(int i = indice-1; i>0;i--)
+			if(arreglo[i]<1000)
+				return i;
+		return -1;
+	}
+	
+	public double sumaSueldosMayoresQue850(){
+		double suma =0;
+		for (int i=0 ;i<arreglo.length; i++){
+			if(arreglo[indice]>850){
+				suma=suma+arreglo[indice];
+				return i;
+			}	
+		}	
+		return -1;
+	}
+	
+	public void reemplazarUltimoSueldoMenorQue1000(){
+		for (int i = indice-1; i>0;i--)
+			Intercambiar(posicionUltimoSueldoMenorQue1000(),sumaSueldosMayoresQue850());		
+	}
+	
+	public int incrementarSueldosMenoresQue1200(){
+		int contador=0;	
+		for (int i = 0; i>arreglo.length;i++){
+		if (arreglo [indice]<1200)
+			contador ++;		
+		}
+		return contador;
+	}
+	
+	public void eliminarUltimoSueldoMenorQue1000(){
+		int posicion = posicionUltimoSueldoMenorQue1000();
+		
+		if(posicion!=-1)
+			eliminar(posicion);
+	}
+	
+	private void eliminar( int pos){
+		for(int i = pos; i<indice-1;i++)
+			arreglo[i] = arreglo[i+1];
+		indice--;
+	}
+	private void Intercambiar(double a, double b){
+		double aux = a;
+		a = b;
+		b = aux; 
+	}
+	
+	public int getIndice() {
+		return indice;
+	}
+
+	public void setIndice(int indice) {
+		this.indice = indice;
+	}
+	
+	
+}

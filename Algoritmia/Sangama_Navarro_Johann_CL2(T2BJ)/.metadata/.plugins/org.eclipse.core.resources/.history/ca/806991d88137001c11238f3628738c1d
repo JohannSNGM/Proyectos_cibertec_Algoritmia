@@ -1,0 +1,26 @@
+package ArregloSueldos;
+
+public class ArregloSueldos {
+	
+	private int indice;
+	private double [] arreglo;
+	
+	public ArregloSueldos(){
+		arreglo = new double [5];
+		indice = 0;
+	}
+	
+	public int tamanio(){
+		return indice;
+	}
+	
+	public double obtener(double j){
+		return arreglo [j];
+	}
+	
+	
+	
+	
+	
+	
+}
